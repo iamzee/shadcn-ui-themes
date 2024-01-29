@@ -1,5 +1,6 @@
 import { useLoaderData } from "@remix-run/react";
 import type { loader } from "./loader.server";
+import { Button } from "~/components/ui/button";
 
 export { loader } from "./loader.server";
 
@@ -8,6 +9,7 @@ export default function AuthorTheme() {
 
   return (
     <div>
+      <Button>Test Button</Button>
       <h1>Current Theme</h1>
       <p>{JSON.stringify(currTheme, null, 2)}</p>
       <hr />
