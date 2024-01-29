@@ -1,7 +1,5 @@
-// import { useLoaderData } from "@remix-run/react";
-// import type { loader } from "./loader.server";
-// import { Button } from "~/components/ui/button";
-import { Outlet } from "@remix-run/react";
+import type { loader } from "./loader.server";
+import { Outlet, useLoaderData } from "@remix-run/react";
 import { ExamplesNav } from "./examples-nav";
 import {
   PageActions,
@@ -13,10 +11,10 @@ import {
 export { loader } from "./loader.server";
 
 export default function AuthorTheme() {
-  // const { allThemes, currTheme } = useLoaderData<typeof loader>();
+  const { currTheme } = useLoaderData<typeof loader>();
 
   return (
-    <>
+    <div style={{ ...currTheme.light }}>
       {/* TODO: add `container` to tailwind.config.js */}
       <div className="container relative">
         <PageHeader>
@@ -55,6 +53,6 @@ export default function AuthorTheme() {
           </div>
         </section>
       </div>
-    </>
+    </div>
   );
 }
