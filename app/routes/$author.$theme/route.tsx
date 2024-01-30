@@ -14,6 +14,7 @@ export default function AuthorTheme() {
   const { currTheme } = useLoaderData<typeof loader>();
 
   return (
+    // injecting theme css variables ---
     <div style={{ ...currTheme.light }}>
       {/* TODO: add `container` to tailwind.config.js */}
       <div className="container relative">
