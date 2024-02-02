@@ -1,0 +1,18 @@
+import { useLoaderData } from "@remix-run/react";
+import type { loader } from "./loader.server";
+import { Dashboard } from "~/shadcn-examples/dashboard";
+
+export { loader } from "./loader.server";
+
+export default function RandomTheme() {
+  const { sourceColor, light } = useLoaderData<typeof loader>();
+
+  return (
+    <div>
+      <h1>{sourceColor}</h1>
+      <div style={{ ...light } as React.CSSProperties}>
+        <Dashboard />
+      </div>
+    </div>
+  );
+}
