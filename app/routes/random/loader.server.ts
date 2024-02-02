@@ -88,8 +88,88 @@ export const loader = () => {
       .join(" "),
   };
 
+  const dark = {
+    "--background": convert.hex
+      .hsl(hexFromArgb(theme.schemes.dark["background"]))
+      .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
+      .join(" "),
+    "--foreground": convert.hex
+      .hsl(hexFromArgb(theme.schemes.dark["onBackground"]))
+      .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
+      .join(" "),
+    "--card": convert.hex
+      .hsl(hexFromArgb(theme.schemes.dark["surface"]))
+      .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
+      .join(" "),
+    "--card-foreground": convert.hex
+      .hsl(hexFromArgb(theme.schemes.dark["onSurface"]))
+      .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
+      .join(" "),
+    "--popover": convert.hex
+      .hsl(hexFromArgb(theme.schemes.dark["surface"]))
+      .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
+      .join(" "),
+    "--popover-foreground": convert.hex
+      .hsl(hexFromArgb(theme.schemes.dark["onSurface"]))
+      .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
+      .join(" "),
+    "--primary": convert.hex
+      .hsl(hexFromArgb(theme.schemes.dark["primary"]))
+      .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
+      .join(" "),
+    "--primary-foreground": convert.hex
+      .hsl(hexFromArgb(theme.schemes.dark["onPrimary"]))
+      .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
+      .join(" "),
+    "--secondary": convert.hex
+      .hsl(hexFromArgb(theme.schemes.dark["tertiary"]))
+      .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
+      .join(" "),
+    "--secondary-foreground": convert.hex
+      .hsl(hexFromArgb(theme.schemes.dark["onTertiary"]))
+      .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
+      .join(" "),
+    "--muted": convert.hex
+      .hsl(hexFromArgb(theme.schemes.dark["surfaceVariant"]))
+      .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
+      .join(" "),
+    "--muted-foreground": convert.hex
+      .hsl(hexFromArgb(theme.schemes.dark["onSurfaceVariant"]))
+      .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
+      .join(" "),
+    "--accent": convert.hex
+      .hsl(hexFromArgb(theme.schemes.dark["secondary"]))
+      .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
+      .join(" "),
+    "--accent-foreground": convert.hex
+      .hsl(hexFromArgb(theme.schemes.dark["onSecondary"]))
+      .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
+      .join(" "),
+    "--destructive": convert.hex
+      .hsl(hexFromArgb(theme.schemes.dark["error"]))
+      .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
+      .join(" "),
+    "--destructive-foreground": convert.hex
+      .hsl(hexFromArgb(theme.schemes.dark["onError"]))
+      .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
+      .join(" "),
+    "--border": convert.hex
+      .hsl(hexFromArgb(theme.schemes.dark["outline"]))
+      .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
+      .join(" "),
+    "--input": convert.hex
+      .hsl(hexFromArgb(theme.schemes.dark["outline"]))
+      .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
+      .join(" "),
+    "--ring": convert.hex
+      .hsl(hexFromArgb(theme.schemes.dark["scrim"]))
+      .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
+      .join(" "),
+  };
+
   return {
     sourceColor,
     light,
+    dark,
   };
 };

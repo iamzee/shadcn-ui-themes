@@ -5,13 +5,20 @@ import { Dashboard } from "~/shadcn-examples/dashboard";
 export { loader } from "./loader.server";
 
 export default function RandomTheme() {
-  const { sourceColor, light } = useLoaderData<typeof loader>();
+  const { sourceColor, light, dark } = useLoaderData<typeof loader>();
 
   return (
     <div>
       <h1>{sourceColor}</h1>
-      <div style={{ ...light } as React.CSSProperties}>
-        <Dashboard />
+      <div style={{ ...dark } as React.CSSProperties}>
+        <div
+          style={{
+            background: "hsl(var(--background))",
+            color: "hsl(var(--foreground))",
+          }}
+        >
+          <Dashboard />
+        </div>
       </div>
     </div>
   );
