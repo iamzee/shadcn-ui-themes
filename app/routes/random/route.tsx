@@ -10,7 +10,7 @@ export default function RandomTheme() {
   return (
     <div>
       <h1>{sourceColor}</h1>
-      <div style={{ ...dark } as React.CSSProperties}>
+      <div style={{ ...light } as React.CSSProperties}>
         <div
           style={{
             background: "hsl(var(--background))",

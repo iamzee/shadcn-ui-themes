@@ -130,11 +130,11 @@ export const loader = () => {
       .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
       .join(" "),
     "--muted": convert.hex
-      .hsl(hexFromArgb(theme.schemes.dark["surfaceVariant"]))
+      .hsl(hexFromArgb(theme.schemes.dark["onSurfaceVariant"]))
       .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
       .join(" "),
     "--muted-foreground": convert.hex
-      .hsl(hexFromArgb(theme.schemes.dark["onSurfaceVariant"]))
+      .hsl(hexFromArgb(theme.schemes.dark["surfaceVariant"]))
       .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
       .join(" "),
     "--accent": convert.hex
