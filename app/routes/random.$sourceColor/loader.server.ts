@@ -1,14 +1,15 @@
-import randomColor from "randomcolor";
 import {
   argbFromHex,
   themeFromSourceColor,
   hexFromArgb,
 } from "@material/material-color-utilities";
 import convert from "color-convert";
+import { LoaderFunctionArgs } from "@remix-run/node";
+import { z } from "zod";
 
-export const loader = () => {
-  const sourceColor = randomColor();
-  const theme = themeFromSourceColor(argbFromHex(sourceColor));
+export const loader = ({ params }: LoaderFunctionArgs) => {
+  const sourceColor = z.string().parse(params.sourceColor);
+  const theme = themeFromSourceColor(argbFromHex(`#${sourceColor}`));
   const light = {
     "--background": convert.hex
       .hsl(hexFromArgb(theme.schemes.light["background"]))

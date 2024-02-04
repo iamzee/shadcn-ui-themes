@@ -11,7 +11,7 @@ import { useState } from "react";
 export { loader } from "./loader.server";
 
 export default function RandomTheme() {
-  const { sourceColor, light, dark } = useLoaderData<typeof loader>();
+  const { light, dark } = useLoaderData<typeof loader>();
 
   const [size, setSize] = useState(50);
 
