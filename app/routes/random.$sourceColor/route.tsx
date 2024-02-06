@@ -8,6 +8,16 @@ import {
 } from "~/components/ui/resizable";
 import { useState } from "react";
 import { Button } from "~/components/ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "~/components/ui/dialog";
+import { Copy } from "lucide-react";
+import copy from "copy-to-clipboard";
 
 export { loader } from "./loader.server";
 export { action } from "./action.server";
@@ -78,16 +88,78 @@ export default function RandomTheme() {
         </ResizablePanelGroup>
       </div>
       <div className="h-14 w-screen fixed bottom-0 flex justify-center items-center">
-        <ActionBar />
+        <ActionBar light={light} dark={dark} />
       </div>
     </div>
   );
 }
 
-function ActionBar() {
+function ActionBar({ light, dark }: { light: any; dark: any }) {
+  const properties = [
+    "--background",
+    "--foreground",
+    "--card",
+    "--card-foreground",
+    "--popover",
+    "--popover-foreground",
+    "--primary",
+    "--primary-foreground",
+    "--secondary",
+    "--secondary-foreground",
+    "--muted",
+    "--muted-foreground",
+    "--accent",
+    "--accent-foreground",
+    "--destructive",
+    "--destructive-foreground",
+    "--border",
+    "--input",
+    "--ring",
+  ];
+
+  const theme = `
+@layer base {
+  .light {
+    ${properties
+      .reduce((pre, curr) => pre + "\n" + `    ${curr}: ${light[curr]};`, "")
+      .substring(5)}
+  }
+
+  .dark {
+    ${properties
+      .reduce((pre, curr) => pre + "\n" + `    ${curr}: ${dark[curr]};`, "")
+      .substring(5)}
+  }
+}
+  `;
+
   return (
     <>
-      <Button>Copy Theme</Button>
+      <Dialog>
+        <DialogTrigger asChild>
+          <Button>Copy Theme</Button>
+        </DialogTrigger>
+        <DialogContent className="sm:max-w-[800px] z-[60]">
+          <DialogHeader>
+            <DialogTitle>Theme</DialogTitle>
+            <DialogDescription>
+              Copy and Paste the following code into your CSS file
+            </DialogDescription>
+          </DialogHeader>
+          <div className="sm:max-h-[500px] overflow-y-auto relative">
+            <Button
+              variant="outline"
+              className="absolute right-0 m-5"
+              onClick={() => copy(theme)}
+            >
+              <Copy className="w-4 h-4" />
+            </Button>
+            <div className="bg-accent text-accent-foreground p-5 text-sm">
+              <pre>{theme}</pre>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
       <Form method="POST">
         <Button name="intent" value="shuffle" type="submit">
           Shuffle
