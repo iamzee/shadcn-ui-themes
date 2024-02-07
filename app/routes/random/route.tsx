@@ -26,6 +26,7 @@ export default function RandomTheme() {
           ...light,
           background: "hsl(var(--background))",
           color: "hsl(var(--foreground))",
+          borderColor: "hsl(var(--border))",
         } as React.CSSProperties
       }
     >

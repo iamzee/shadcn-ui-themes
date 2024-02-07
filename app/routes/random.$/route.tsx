@@ -45,6 +45,7 @@ export default function RandomExamplePage() {
             style={{
               background: "hsl(var(--background))",
               color: "hsl(var(--foreground))",
+              borderColor: "hsl(var(--border))",
             }}
           >
             {exampleComponentMap[example]}
@@ -66,6 +67,7 @@ export default function RandomExamplePage() {
             style={{
               background: "hsl(var(--background))",
               color: "hsl(var(--foreground))",
+              borderColor: "hsl(var(--border))",
             }}
           >
             {exampleComponentMap[example]}

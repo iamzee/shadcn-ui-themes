@@ -46,11 +46,11 @@ export const loader = () => {
       .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
       .join(" "),
     "--secondary": convert.hex
-      .hsl(hexFromArgb(theme.schemes.light["tertiary"]))
+      .hsl(hexFromArgb(theme.schemes.light["secondary"]))
       .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
       .join(" "),
     "--secondary-foreground": convert.hex
-      .hsl(hexFromArgb(theme.schemes.light["onTertiary"]))
+      .hsl(hexFromArgb(theme.schemes.light["onSecondary"]))
       .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
       .join(" "),
     "--muted": convert.hex
@@ -58,15 +58,15 @@ export const loader = () => {
       .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
       .join(" "),
     "--muted-foreground": convert.hex
-      .hsl(hexFromArgb(theme.schemes.light["onSurfaceVariant"]))
+      .hsl(hexFromArgb(theme.schemes.light["outline"]))
       .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
       .join(" "),
     "--accent": convert.hex
-      .hsl(hexFromArgb(theme.schemes.light["secondary"]))
+      .hsl(hexFromArgb(theme.schemes.light["surfaceVariant"]))
       .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
       .join(" "),
     "--accent-foreground": convert.hex
-      .hsl(hexFromArgb(theme.schemes.light["onSecondary"]))
+      .hsl(hexFromArgb(theme.schemes.light["onSurfaceVariant"]))
       .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
       .join(" "),
     "--destructive": convert.hex
@@ -78,15 +78,15 @@ export const loader = () => {
       .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
       .join(" "),
     "--border": convert.hex
-      .hsl(hexFromArgb(theme.schemes.light["outline"]))
+      .hsl(hexFromArgb(theme.schemes.light["outlineVariant"]))
       .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
       .join(" "),
     "--input": convert.hex
-      .hsl(hexFromArgb(theme.schemes.light["outline"]))
+      .hsl(hexFromArgb(theme.schemes.light["outlineVariant"]))
       .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
       .join(" "),
     "--ring": convert.hex
-      .hsl(hexFromArgb(theme.schemes.light["scrim"]))
+      .hsl(hexFromArgb(theme.schemes.light["primary"]))
       .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
       .join(" "),
     "--radius": radius,
@@ -126,27 +126,27 @@ export const loader = () => {
       .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
       .join(" "),
     "--secondary": convert.hex
-      .hsl(hexFromArgb(theme.schemes.dark["tertiary"]))
-      .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
-      .join(" "),
-    "--secondary-foreground": convert.hex
-      .hsl(hexFromArgb(theme.schemes.dark["onTertiary"]))
-      .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
-      .join(" "),
-    "--muted": convert.hex
-      .hsl(hexFromArgb(theme.schemes.dark["onSurfaceVariant"]))
-      .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
-      .join(" "),
-    "--muted-foreground": convert.hex
-      .hsl(hexFromArgb(theme.schemes.dark["surfaceVariant"]))
-      .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
-      .join(" "),
-    "--accent": convert.hex
       .hsl(hexFromArgb(theme.schemes.dark["secondary"]))
       .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
       .join(" "),
-    "--accent-foreground": convert.hex
+    "--secondary-foreground": convert.hex
       .hsl(hexFromArgb(theme.schemes.dark["onSecondary"]))
+      .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
+      .join(" "),
+    "--muted": convert.hex
+      .hsl(hexFromArgb(theme.schemes.dark["surfaceVariant"]))
+      .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
+      .join(" "),
+    "--muted-foreground": convert.hex
+      .hsl(hexFromArgb(theme.schemes.dark["outline"]))
+      .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
+      .join(" "),
+    "--accent": convert.hex
+      .hsl(hexFromArgb(theme.schemes.dark["surfaceVariant"]))
+      .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
+      .join(" "),
+    "--accent-foreground": convert.hex
+      .hsl(hexFromArgb(theme.schemes.dark["onSurfaceVariant"]))
       .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
       .join(" "),
     "--destructive": convert.hex
@@ -158,15 +158,15 @@ export const loader = () => {
       .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
       .join(" "),
     "--border": convert.hex
-      .hsl(hexFromArgb(theme.schemes.dark["outline"]))
+      .hsl(hexFromArgb(theme.schemes.dark["outlineVariant"]))
       .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
       .join(" "),
     "--input": convert.hex
-      .hsl(hexFromArgb(theme.schemes.dark["outline"]))
+      .hsl(hexFromArgb(theme.schemes.dark["outlineVariant"]))
       .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
       .join(" "),
     "--ring": convert.hex
-      .hsl(hexFromArgb(theme.schemes.dark["scrim"]))
+      .hsl(hexFromArgb(theme.schemes.dark["primary"]))
       .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
       .join(" "),
     "--radius": radius,
