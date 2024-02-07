@@ -1,6 +1,7 @@
 import { Form, useLoaderData } from "@remix-run/react";
 import type { loader } from "./loader.server";
-import { Dashboard } from "~/shadcn-examples/dashboard";
+// import { Dashboard } from "~/shadcn-examples/dashboard";
+import CardsExample from "~/shadcn-examples/cards";
 import {
   ResizableHandle,
   ResizablePanel,
@@ -59,7 +60,7 @@ export default function RandomTheme() {
                   color: "hsl(var(--foreground))",
                 }}
               >
-                <Dashboard />
+                <CardsExample />
               </div>
             </div>
           </ResizablePanel>
@@ -80,7 +81,7 @@ export default function RandomTheme() {
                   color: "hsl(var(--foreground))",
                 }}
               >
-                <Dashboard />
+                <CardsExample />
               </div>
             </div>
           </ResizablePanel>
