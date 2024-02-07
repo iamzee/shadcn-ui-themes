@@ -39,7 +39,7 @@ export default function RandomTheme() {
     >
       <div className="w-screen h-screen p-14">
         <ResizablePanelGroup
-          className="relative h-full !overflow-y-auto"
+          className="relative h-full !overflow-y-auto rounded-[0.5rem] border bg-background shadow-md md:shadow-xl"
           direction="horizontal"
           onLayout={(sizes) => setSize(sizes[0])}
         >
