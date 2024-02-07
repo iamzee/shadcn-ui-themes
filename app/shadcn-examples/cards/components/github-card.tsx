@@ -51,7 +51,8 @@ export function DemoGithub() {
               align="end"
               alignOffset={-5}
               className="w-[200px]"
-              forceMount
+              // `forceMount` is creating issue while closing the dropdown
+              // forceMount
             >
               <DropdownMenuLabel>Suggested Lists</DropdownMenuLabel>
               <DropdownMenuSeparator />
