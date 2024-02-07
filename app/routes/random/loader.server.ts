@@ -8,6 +8,7 @@ import randomColor from "randomcolor";
 import _ from "lodash";
 
 export const loader = () => {
+  console.log("random loader called");
   const color = randomColor();
   const theme = themeFromSourceColor(argbFromHex(color));
   const radius = `${_.sample([0, 0.3, 0.5, 0.75, 1])}rem`;
