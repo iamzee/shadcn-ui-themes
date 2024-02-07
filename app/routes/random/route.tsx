@@ -20,7 +20,6 @@ import { Copy } from "lucide-react";
 import copy from "copy-to-clipboard";
 
 export { loader } from "./loader.server";
-export { action } from "./action.server";
 
 export default function RandomTheme() {
   const { light, dark } = useLoaderData<typeof loader>();
@@ -94,6 +93,7 @@ export default function RandomTheme() {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function ActionBar({ light, dark }: { light: any; dark: any }) {
   const properties = [
     "--background",
@@ -160,10 +160,8 @@ function ActionBar({ light, dark }: { light: any; dark: any }) {
           </div>
         </DialogContent>
       </Dialog>
-      <Form method="POST">
-        <Button name="intent" value="shuffle" type="submit">
-          Shuffle
-        </Button>
+      <Form>
+        <Button type="submit">Shuffle</Button>
       </Form>
     </>
   );
