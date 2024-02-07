@@ -1,4 +1,10 @@
-import { Form, Outlet, useLoaderData, useLocation } from "@remix-run/react";
+import {
+  Form,
+  Outlet,
+  useLoaderData,
+  useLocation,
+  useSearchParams,
+} from "@remix-run/react";
 import type { loader } from "./loader.server";
 import { Button } from "~/components/ui/button";
 import {
@@ -9,7 +15,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "~/components/ui/dialog";
-import { Copy } from "lucide-react";
+import { Copy, Moon, Sun } from "lucide-react";
 import copy from "copy-to-clipboard";
 import { ExamplesNav } from "./example-nav";
 
@@ -17,13 +23,17 @@ export { loader } from "./loader.server";
 
 export default function RandomTheme() {
   const { light, dark } = useLoaderData<typeof loader>();
+  const [searchParams] = useSearchParams();
+
+  const colorScheme =
+    searchParams.get("color-scheme") === "dark" ? dark : light;
 
   return (
     <div
       className="relative"
       style={
         {
-          ...light,
+          ...colorScheme,
           background: "hsl(var(--background))",
           color: "hsl(var(--foreground))",
           borderColor: "hsl(var(--border))",
@@ -84,6 +94,8 @@ function ActionBar({ light, dark }: { light: any; dark: any }) {
   `;
 
   const location = useLocation();
+  const [searchParams] = useSearchParams();
+  const colorScheme = searchParams.get("color-scheme") || "light";
 
   return (
     <>
@@ -114,6 +126,24 @@ function ActionBar({ light, dark }: { light: any; dark: any }) {
       </Dialog>
       <Form action={location.pathname}>
         <Button type="submit">Shuffle</Button>
+      </Form>
+      <Form action={location.pathname}>
+        <Button
+          name="color-scheme"
+          value="light"
+          variant={colorScheme === "light" ? "default" : "outline"}
+        >
+          <Sun className="w-4 h-4" />
+        </Button>
+      </Form>
+      <Form action={location.pathname}>
+        <Button
+          name="color-scheme"
+          value="dark"
+          variant={colorScheme === "dark" ? "default" : "outline"}
+        >
+          <Moon className="w-4 h-4" />
+        </Button>
       </Form>
     </>
   );

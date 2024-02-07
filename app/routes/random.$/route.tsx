@@ -1,4 +1,8 @@
-import { useParams, useRouteLoaderData } from "@remix-run/react";
+import {
+  useParams,
+  useRouteLoaderData,
+  useSearchParams,
+} from "@remix-run/react";
 import { useState } from "react";
 import {
   ResizableHandle,
@@ -20,10 +24,42 @@ export default function RandomExamplePage() {
   const [size, setSize] = useState(50);
   const loaderData =
     useRouteLoaderData<typeof randomRouteLoader>("routes/random");
+  const [searchParams] = useSearchParams();
+
+  const view = searchParams.get("view") || "single";
+
+  console.log(view, searchParams.get("view"));
 
   if (!loaderData) return null;
 
   const { light, dark } = loaderData;
+  const colorScheme =
+    searchParams.get("color-scheme") === "dark" ? dark : light;
+
+  if (view === "single") {
+    return (
+      <div className="relative h-full !overflow-y-auto rounded-[0.5rem] border bg-background shadow-md md:shadow-xl">
+        <div
+          style={
+            {
+              ...colorScheme,
+            } as React.CSSProperties
+          }
+          className="absolute top-0 left-0 w-full"
+        >
+          <div
+            style={{
+              background: "hsl(var(--background))",
+              color: "hsl(var(--foreground))",
+              borderColor: "hsl(var(--border))",
+            }}
+          >
+            {exampleComponentMap[example]}
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <ResizablePanelGroup
