@@ -15,7 +15,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "~/components/ui/dialog";
-import { Copy, Moon, Sun } from "lucide-react";
+import { Copy, Moon, SplitSquareHorizontal, Square, Sun } from "lucide-react";
 import copy from "copy-to-clipboard";
 import { ExamplesNav } from "./example-nav";
 
@@ -94,8 +94,9 @@ function ActionBar({ light, dark }: { light: any; dark: any }) {
   `;
 
   const location = useLocation();
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const colorScheme = searchParams.get("color-scheme") || "light";
+  const view = searchParams.get("view") || "single";
 
   return (
     <>
@@ -127,24 +128,61 @@ function ActionBar({ light, dark }: { light: any; dark: any }) {
       <Form action={location.pathname}>
         <Button type="submit">Shuffle</Button>
       </Form>
-      <Form action={location.pathname}>
-        <Button
-          name="color-scheme"
-          value="light"
-          variant={colorScheme === "light" ? "default" : "outline"}
-        >
-          <Sun className="w-4 h-4" />
-        </Button>
-      </Form>
-      <Form action={location.pathname}>
-        <Button
-          name="color-scheme"
-          value="dark"
-          variant={colorScheme === "dark" ? "default" : "outline"}
-        >
-          <Moon className="w-4 h-4" />
-        </Button>
-      </Form>
+      <Button
+        name="color-scheme"
+        value="light"
+        variant={colorScheme === "light" ? "default" : "outline"}
+        onClick={() => {
+          setSearchParams((prev) => {
+            prev.set("color-scheme", "light");
+            return prev;
+          });
+        }}
+      >
+        <Sun className="w-4 h-4" />
+      </Button>
+
+      <Button
+        name="color-scheme"
+        value="dark"
+        variant={colorScheme === "dark" ? "default" : "outline"}
+        onClick={() => {
+          setSearchParams((prev) => {
+            prev.set("color-scheme", "dark");
+            return prev;
+          });
+        }}
+      >
+        <Moon className="w-4 h-4" />
+      </Button>
+
+      <Button
+        name="view"
+        value="single"
+        variant={view === "single" ? "default" : "outline"}
+        onClick={() => {
+          setSearchParams((prev) => {
+            prev.set("view", "single");
+            return prev;
+          });
+        }}
+      >
+        <Square className="w-4 h-4" />
+      </Button>
+
+      <Button
+        name="view"
+        value="split"
+        variant={view === "split" ? "default" : "outline"}
+        onClick={() => {
+          setSearchParams((prev) => {
+            prev.set("view", "split");
+            return prev;
+          });
+        }}
+      >
+        <SplitSquareHorizontal className="w-4 h-4" />
+      </Button>
     </>
   );
 }
