@@ -86,7 +86,7 @@ export default function RandomTheme() {
           </ResizablePanel>
         </ResizablePanelGroup>
       </div>
-      <div className="h-14 w-screen fixed bottom-0 flex justify-center items-center">
+      <div className="h-14 w-screen fixed bottom-0 flex justify-center items-center space-x-5">
         <ActionBar light={light} dark={dark} />
       </div>
     </div>
@@ -115,6 +115,7 @@ function ActionBar({ light, dark }: { light: any; dark: any }) {
     "--border",
     "--input",
     "--ring",
+    "--radius",
   ];
 
   const theme = `

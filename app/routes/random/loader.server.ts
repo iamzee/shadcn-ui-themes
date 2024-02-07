@@ -5,6 +5,7 @@ import {
 } from "@material/material-color-utilities";
 import convert from "color-convert";
 import randomColor from "randomcolor";
+import _ from "lodash";
 
 export const loader = () => {
   const color = randomColor();
@@ -86,6 +87,7 @@ export const loader = () => {
       .hsl(hexFromArgb(theme.schemes.light["scrim"]))
       .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
       .join(" "),
+    "--radius": `${_.sample([0, 0.3, 0.5, 0.75, 1])}rem`,
   };
 
   const dark = {
@@ -165,6 +167,7 @@ export const loader = () => {
       .hsl(hexFromArgb(theme.schemes.dark["scrim"]))
       .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
       .join(" "),
+    "--radius": `${_.sample([0, 0.3, 0.5, 0.75, 1])}rem`,
   };
 
   return {
