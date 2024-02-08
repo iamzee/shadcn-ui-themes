@@ -1,4 +1,4 @@
-import { Form, useParams, useSearchParams } from "@remix-run/react";
+import { Form, useParams } from "@remix-run/react";
 import { paramsSchema } from "./params-schema";
 import {
   Dialog,
@@ -10,7 +10,9 @@ import {
 } from "~/components/ui/dialog";
 import { Button } from "~/components/ui/button";
 import copy from "copy-to-clipboard";
-import { Copy, Moon, SplitSquareHorizontal, Square, Sun } from "lucide-react";
+import { Copy } from "lucide-react";
+import { ColorSchemeToggle } from "./color-scheme-toggle";
+import { ViewToggle } from "./view-toggle";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const ActionBar = ({ light, dark }: { light: any; dark: any }) => {
@@ -52,10 +54,6 @@ export const ActionBar = ({ light, dark }: { light: any; dark: any }) => {
   }
 }
   `;
-
-  const [searchParams, setSearchParams] = useSearchParams();
-  const colorScheme = searchParams.get("color-scheme") || "light";
-  const view = searchParams.get("view") || "single";
   const params = useParams();
   const [, example] = paramsSchema.parse(params["*"]?.split("/"));
 
@@ -90,61 +88,10 @@ export const ActionBar = ({ light, dark }: { light: any; dark: any }) => {
         <input type="hidden" name="example" value={example} />
         <Button type="submit">Shuffle</Button>
       </Form>
-      <Button
-        name="color-scheme"
-        value="light"
-        variant={colorScheme === "light" ? "default" : "outline"}
-        onClick={() => {
-          setSearchParams((prev) => {
-            prev.set("color-scheme", "light");
-            return prev;
-          });
-        }}
-      >
-        <Sun className="w-4 h-4" />
-      </Button>
 
-      <Button
-        name="color-scheme"
-        value="dark"
-        variant={colorScheme === "dark" ? "default" : "outline"}
-        onClick={() => {
-          setSearchParams((prev) => {
-            prev.set("color-scheme", "dark");
-            return prev;
-          });
-        }}
-      >
-        <Moon className="w-4 h-4" />
-      </Button>
+      <ColorSchemeToggle />
 
-      <Button
-        name="view"
-        value="single"
-        variant={view === "single" ? "default" : "outline"}
-        onClick={() => {
-          setSearchParams((prev) => {
-            prev.set("view", "single");
-            return prev;
-          });
-        }}
-      >
-        <Square className="w-4 h-4" />
-      </Button>
-
-      <Button
-        name="view"
-        value="split"
-        variant={view === "split" ? "default" : "outline"}
-        onClick={() => {
-          setSearchParams((prev) => {
-            prev.set("view", "split");
-            return prev;
-          });
-        }}
-      >
-        <SplitSquareHorizontal className="w-4 h-4" />
-      </Button>
+      <ViewToggle />
     </>
   );
 };
