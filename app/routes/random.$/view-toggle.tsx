@@ -9,7 +9,7 @@ export const ViewToggle = () => {
 
   return (
     <div className="flex items-center space-x-2">
-      <Label>View</Label>
+      <Label className="text-primary">View</Label>
       <ToggleGroup
         type="single"
         defaultValue={view}

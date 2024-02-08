@@ -5,12 +5,11 @@ import {
 } from "@material/material-color-utilities";
 import convert from "color-convert";
 import randomColor from "randomcolor";
-import _ from "lodash";
 import { ZodError } from "zod";
 import { type LoaderFunctionArgs, redirect } from "@remix-run/node";
 import { paramsSchema } from "./params-schema";
 
-export const loader = async ({ params }: LoaderFunctionArgs) => {
+export const loader = async ({ params, request }: LoaderFunctionArgs) => {
   try {
     // extract `sourceColor` and `example` from params (splat route)
     // if they are not present redirect to `/random/:randomColor/dashboard`
@@ -19,7 +18,7 @@ export const loader = async ({ params }: LoaderFunctionArgs) => {
     );
 
     const theme = themeFromSourceColor(argbFromHex(sourceColor));
-    const radius = `${_.sample([0, 0.3, 0.5, 0.75, 1])}rem`;
+    const radius = new URL(request.url).searchParams.get("radius") || "0.5";
     const light = {
       "--background": convert.hex
         .hsl(hexFromArgb(theme.schemes.light["background"]))
@@ -97,7 +96,7 @@ export const loader = async ({ params }: LoaderFunctionArgs) => {
         .hsl(hexFromArgb(theme.schemes.light["primary"]))
         .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
         .join(" "),
-      "--radius": radius,
+      "--radius": `${radius}rem`,
     };
 
     const dark = {
@@ -177,7 +176,7 @@ export const loader = async ({ params }: LoaderFunctionArgs) => {
         .hsl(hexFromArgb(theme.schemes.dark["primary"]))
         .map((v, i) => (i === 1 || i === 2 ? `${v}%` : v))
         .join(" "),
-      "--radius": radius,
+      "--radius": `${radius}rem`,
     };
 
     return {

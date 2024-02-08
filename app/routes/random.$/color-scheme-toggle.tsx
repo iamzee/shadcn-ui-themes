@@ -9,7 +9,7 @@ export const ColorSchemeToggle = () => {
 
   return (
     <div className="flex items-center space-x-2">
-      <Label>Color Scheme</Label>
+      <Label className="text-primary">Color Scheme</Label>
       <ToggleGroup
         type="single"
         defaultValue={colorScheme}

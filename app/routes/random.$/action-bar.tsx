@@ -13,6 +13,7 @@ import copy from "copy-to-clipboard";
 import { Copy, Shuffle } from "lucide-react";
 import { ColorSchemeToggle } from "./color-scheme-toggle";
 import { ViewToggle } from "./view-toggle";
+import { RadiusToggle } from "./radius-toggle";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const ActionBar = ({ light, dark }: { light: any; dark: any }) => {
@@ -97,7 +98,8 @@ export const ActionBar = ({ light, dark }: { light: any; dark: any }) => {
         </Form>
       </div>
 
-      <div className="flex items-center space-x-2">
+      <div className="flex items-center divide-x-2 [&>*:not(:last-child)]:px-2 [&>*:last-child]:pl-2">
+        <RadiusToggle />
         <ColorSchemeToggle />
         <ViewToggle />
       </div>
