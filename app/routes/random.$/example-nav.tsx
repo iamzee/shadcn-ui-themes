@@ -1,8 +1,9 @@
-import { NavLink, Link } from "@remix-run/react";
+import { Link, useParams, useLocation } from "@remix-run/react";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 
 import { cn } from "~/utils/cn";
 import { ScrollArea, ScrollBar } from "~/components/ui/scroll-area";
+import { paramsSchema } from "./params-schema";
 
 const examples = [
   {
@@ -50,25 +51,31 @@ const examples = [
 interface ExamplesNavProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 export function ExamplesNav({ className, ...props }: ExamplesNavProps) {
+  const params = useParams();
+  const location = useLocation();
+  const [sourceColor, exampleName] = paramsSchema.parse(
+    params["*"]?.split("/")
+  );
+
   return (
     <div className="relative">
       <ScrollArea className="max-w-[600px] lg:max-w-none">
         <div className={cn("mb-4 flex items-center", className)} {...props}>
           {examples.map((example) => (
-            <NavLink
-              to={example.href}
+            <Link
+              to={`/random/${sourceColor.split("#")[1]}/${example.href}${
+                location.search
+              }`}
               key={example.href}
-              className={({ isActive }) =>
-                cn(
-                  "flex h-7 items-center justify-center rounded-full px-4 text-center text-sm transition-colors hover:text-primary",
-                  isActive
-                    ? "bg-muted font-medium text-primary"
-                    : "text-muted-foreground"
-                )
-              }
+              className={cn(
+                "flex h-7 items-center justify-center rounded-full px-4 text-center text-sm transition-colors hover:text-primary",
+                exampleName === example.href
+                  ? "bg-muted font-medium text-primary"
+                  : "text-muted-foreground"
+              )}
             >
               {example.name}
-            </NavLink>
+            </Link>
           ))}
         </div>
         <ScrollBar orientation="horizontal" className="invisible" />
