@@ -10,7 +10,7 @@ import {
 } from "~/components/ui/dialog";
 import { Button } from "~/components/ui/button";
 import copy from "copy-to-clipboard";
-import { Copy } from "lucide-react";
+import { Copy, Shuffle } from "lucide-react";
 import { ColorSchemeToggle } from "./color-scheme-toggle";
 import { ViewToggle } from "./view-toggle";
 
@@ -61,7 +61,10 @@ export const ActionBar = ({ light, dark }: { light: any; dark: any }) => {
     <>
       <Dialog>
         <DialogTrigger asChild>
-          <Button>Copy Theme</Button>
+          <Button>
+            <Copy className="w-4 h-4 mr-2" />
+            Copy Theme
+          </Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[800px] z-[60]">
           <DialogHeader>
@@ -86,7 +89,10 @@ export const ActionBar = ({ light, dark }: { light: any; dark: any }) => {
       </Dialog>
       <Form method="POST">
         <input type="hidden" name="example" value={example} />
-        <Button type="submit">Shuffle</Button>
+        <Button type="submit">
+          <Shuffle className="w-4 h-4 mr-2" />
+          Shuffle
+        </Button>
       </Form>
 
       <ColorSchemeToggle />
