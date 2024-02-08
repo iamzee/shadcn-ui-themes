@@ -6,5 +6,5 @@ export const paramsSchema = z.tuple([
     .string()
     .transform((val) => `#${val}`)
     .refine(validator.isHexColor),
-  z.enum(["dashboard", "cards"]),
+  z.enum(["dashboard", "cards", "mail"]),
 ]);

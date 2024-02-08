@@ -8,10 +8,12 @@ import {
 import { Dashboard } from "~/shadcn-examples/dashboard";
 import CardsExample from "~/shadcn-examples/cards";
 import { paramsSchema } from "./params-schema";
+import MailExample from "~/shadcn-examples/mail";
 
 const exampleComponentMap = {
   dashboard: <Dashboard />,
   cards: <CardsExample />,
+  mail: <MailExample />,
 };
 
 type ExampleProps = {
