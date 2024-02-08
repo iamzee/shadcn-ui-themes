@@ -31,7 +31,7 @@ export default function RandomPage() {
         <ExamplesNav />
         <Example light={light} dark={dark} />
       </div>
-      <div className="h-14 w-screen fixed bottom-0 flex justify-center items-center space-x-5">
+      <div className="h-14 px-14 w-screen fixed bottom-0 flex justify-between items-center space-x-5">
         <ActionBar light={light} dark={dark} />
       </div>
     </div>
