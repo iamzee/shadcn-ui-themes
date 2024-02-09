@@ -13,7 +13,7 @@ export const Header = () => {
         </span>
       </div>
       <span className="font-medium underline underline-offset-2 text-secondary">
-        Generate beautiful random themes for your shadcn UI
+        <q>Generate beautiful random themes for your shadcn UI</q>
       </span>
       <div className="text-sm space-x-5">
         <NavLink
