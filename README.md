@@ -1,36 +1,16 @@
-# Welcome to Remix!
+# shadcn/ui themes
 
-- [Remix Docs](https://remix.run/docs)
+A place to generate/explore themes for [shadcn/ui](https://ui.shadcn.com)
 
-## Development
+## Credits
 
-Start the Remix development asset server and the Express server by running:
-
-```sh
-npm run dev
-```
-
-This starts your app in development mode, which will purge the server require cache when Remix rebuilds assets so you don't need a process manager restarting the express server.
-
-## Deployment
-
-First, build your app for production:
-
-```sh
-npm run build
-```
-
-Then run the app in production mode:
-
-```sh
-npm start
-```
-
-Now you'll need to pick a host to deploy it to.
-
-### DIY
-
-If you're familiar with deploying express applications you should be right at home just make sure to deploy the output of `remix build`
-
-- `build/`
-- `public/build/`
+- [shadcn/ui](https://ui.shadcn.com)
+  - This web application is built to generate/explore beautiful random shadcn-ui themes. This project literally copied [examples](https://github.com/shadcn-ui/ui/tree/main/apps/www/app/examples) code from the [shadcn-ui](https://github.com/shadcn-ui/ui) github repository, so that users can test themes on official examples.
+- [material-color-utilities](https://github.com/material-foundation/material-color-utilities)
+  - Provides the algorithm and utilities to generate light/dark colors scheme from the given source color
+- [randomcolor](https://www.npmjs.com/package/randomcolor)
+  - Helps in generating random beautiful colors which then act as a source for `material-color-utilities` to generate colors scheme.
+- [Vercel](https://vercel.com/dashboard)
+  - Deployed on vercel
+- [Remix](https://remix.run/)
+  - Build with Remix ❤️
