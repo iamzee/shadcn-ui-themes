@@ -16,7 +16,7 @@ export default function RandomPage() {
 
   return (
     <div
-      className="relative"
+      className={`relative ${searchParams.get("color-scheme") || "light"}`}
       style={
         {
           ...colorScheme,
