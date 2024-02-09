@@ -3,6 +3,7 @@ import type { loader } from "./loader.server";
 import { ExamplesNav } from "./example-nav";
 import { Example } from "./example";
 import { ActionBar } from "./action-bar";
+import { Header } from "./header";
 
 export { loader } from "./loader.server";
 export { action } from "./action.server";
@@ -26,7 +27,9 @@ export default function RandomPage() {
         } as React.CSSProperties
       }
     >
-      <div className="h-14 w-screen fixed top-0">Header</div>
+      <div className="h-14 w-screen fixed top-0">
+        <Header />
+      </div>
       <div className="w-screen h-screen p-14 pb-28">
         <ExamplesNav />
         <Example light={light} dark={dark} />
