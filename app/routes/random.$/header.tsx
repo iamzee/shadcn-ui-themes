@@ -1,4 +1,3 @@
-import { ShadcnLogo } from "~/components/shadcn-logo";
 import { NavLink } from "@remix-run/react";
 import { cn } from "~/utils/cn";
 import { Badge } from "~/components/ui/badge";
@@ -7,8 +6,8 @@ export const Header = () => {
   return (
     <div className="w-full h-full flex items-center px-14 justify-between">
       <div className="flex items-center space-x-2">
-        <ShadcnLogo />
-        <span className="font-bold inline-block text-primary">
+        🎨
+        <span className="font-bold inline-block text-primary ml-2">
           shadcn/ui themes
         </span>
       </div>

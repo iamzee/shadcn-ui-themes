@@ -7,6 +7,7 @@ import { Header } from "./header";
 
 export { loader } from "./loader.server";
 export { action } from "./action.server";
+export { meta } from "./meta";
 
 export default function RandomPage() {
   const { light, dark } = useLoaderData<typeof loader>();
