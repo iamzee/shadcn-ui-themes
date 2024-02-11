@@ -1,5 +1,5 @@
 export const siteConfig = {
-  title: "shadcn-ui-themes",
+  title: "themes-shadcn-ui",
   description:
     "Generate beautiful, random light and dark themes for your ShadcnUI",
   url: "",

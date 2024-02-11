@@ -9,7 +9,7 @@ export const Header = () => {
       <div className="flex items-center space-x-2">
         🎨
         <span className="font-bold inline-block text-primary ml-2">
-          shadcn/ui themes
+          {siteConfig.title}
         </span>
       </div>
       <span className="font-medium underline underline-offset-2 text-secondary">
