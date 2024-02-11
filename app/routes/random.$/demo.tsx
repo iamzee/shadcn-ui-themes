@@ -54,16 +54,14 @@ export const Demo = ({ light, dark }: ExampleProps) => {
     >
       <ResizablePanel>
         <div
-          style={
-            {
-              ...light,
-              clipPath: `polygon(0 0, ${size}% 0, ${size}% 100%, 0 100%)`,
-            } as React.CSSProperties
-          }
+          style={{
+            clipPath: `polygon(0 0, ${size}% 0, ${size}% 100%, 0 100%)`,
+          }}
           className="absolute top-0 left-0 w-full"
         >
           <div
             style={{
+              ...light,
               background: "hsl(var(--background))",
               color: "hsl(var(--foreground))",
               borderColor: "hsl(var(--border))",
@@ -76,16 +74,14 @@ export const Demo = ({ light, dark }: ExampleProps) => {
       <ResizableHandle withHandle />
       <ResizablePanel>
         <div
-          style={
-            {
-              ...dark,
-              clipPath: `polygon(${size}% 0, 100% 0, 100% 100%, ${size}% 100%)`,
-            } as React.CSSProperties
-          }
+          style={{
+            clipPath: `polygon(${size}% 0, 100% 0, 100% 100%, ${size}% 100%)`,
+          }}
           className="absolute top-0 left-0 w-full"
         >
           <div
             style={{
+              ...dark,
               background: "hsl(var(--background))",
               color: "hsl(var(--foreground))",
               borderColor: "hsl(var(--border))",
