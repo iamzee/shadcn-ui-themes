@@ -1,6 +1,7 @@
 import { NavLink } from "@remix-run/react";
 import { cn } from "~/utils/cn";
 import { Badge } from "~/components/ui/badge";
+import { siteConfig } from "~/utils/site-config";
 
 export const Header = () => {
   return (
@@ -12,7 +13,7 @@ export const Header = () => {
         </span>
       </div>
       <span className="font-medium underline underline-offset-2 text-secondary">
-        <q>Generate beautiful random themes for your shadcn UI</q>
+        <q>{siteConfig.description}</q>
       </span>
       <div className="text-sm space-x-5">
         <NavLink
