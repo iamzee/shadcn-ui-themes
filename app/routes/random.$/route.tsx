@@ -1,6 +1,6 @@
 import { useLoaderData, useSearchParams } from "@remix-run/react";
 import type { loader } from "./loader.server";
-import { Example } from "./example";
+import { Demo } from "./demo";
 import { ActionBar } from "./action-bar";
 import { Header } from "./header";
 
@@ -31,7 +31,7 @@ export default function RandomPage() {
         <Header />
       </div>
       <div className="w-screen h-screen p-14">
-        <Example light={light} dark={dark} />
+        <Demo light={light} dark={dark} />
       </div>
       <div className="h-14 px-14 w-screen fixed bottom-0 flex justify-between items-center space-x-5">
         <ActionBar light={light} dark={dark} />

@@ -14,7 +14,7 @@ type ExampleProps = {
   dark: any;
 };
 
-export const Example = ({ light, dark }: ExampleProps) => {
+export const Demo = ({ light, dark }: ExampleProps) => {
   const [size, setSize] = useState(50);
   const [searchParams] = useSearchParams();
   const view = searchParams.get("view") || "single";
