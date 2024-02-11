@@ -1,20 +1,11 @@
-import { useParams, useSearchParams } from "@remix-run/react";
+import { useSearchParams } from "@remix-run/react";
 import { useState } from "react";
 import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
 } from "~/components/ui/resizable";
-import { Dashboard } from "~/shadcn-examples/dashboard";
-import CardsExample from "~/shadcn-examples/cards";
-import { paramsSchema } from "./params-schema";
-import MailExample from "~/shadcn-examples/mail";
-
-const exampleComponentMap = {
-  dashboard: <Dashboard />,
-  cards: <CardsExample />,
-  mail: <MailExample />,
-};
+import { ShadcnDemo } from "~/shadcn-demo";
 
 type ExampleProps = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -24,8 +15,6 @@ type ExampleProps = {
 };
 
 export const Example = ({ light, dark }: ExampleProps) => {
-  const params = useParams();
-  const [, example] = paramsSchema.parse(params["*"]?.split("/"));
   const [size, setSize] = useState(50);
   const [searchParams] = useSearchParams();
   const view = searchParams.get("view") || "single";
@@ -34,7 +23,7 @@ export const Example = ({ light, dark }: ExampleProps) => {
 
   if (view === "single") {
     return (
-      <div className="relative h-full !overflow-y-auto rounded-[0.5rem] border bg-background shadow-md md:shadow-xl">
+      <div className="relative h-full !overflow-y-auto">
         <div
           style={
             {
@@ -50,7 +39,7 @@ export const Example = ({ light, dark }: ExampleProps) => {
               borderColor: "hsl(var(--border))",
             }}
           >
-            {exampleComponentMap[example]}
+            <ShadcnDemo />
           </div>
         </div>
       </div>
@@ -59,7 +48,7 @@ export const Example = ({ light, dark }: ExampleProps) => {
 
   return (
     <ResizablePanelGroup
-      className="relative h-full !overflow-y-auto rounded-[0.5rem] border bg-background shadow-md md:shadow-xl"
+      className="relative h-full !overflow-y-auto"
       direction="horizontal"
       onLayout={(sizes) => setSize(sizes[0])}
     >
@@ -80,7 +69,7 @@ export const Example = ({ light, dark }: ExampleProps) => {
               borderColor: "hsl(var(--border))",
             }}
           >
-            {exampleComponentMap[example]}
+            <ShadcnDemo />
           </div>
         </div>
       </ResizablePanel>
@@ -102,7 +91,7 @@ export const Example = ({ light, dark }: ExampleProps) => {
               borderColor: "hsl(var(--border))",
             }}
           >
-            {exampleComponentMap[example]}
+            <ShadcnDemo />
           </div>
         </div>
       </ResizablePanel>

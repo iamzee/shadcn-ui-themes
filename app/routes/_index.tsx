@@ -3,7 +3,7 @@ import randomColor from "randomcolor";
 
 export const loader = () => {
   const sourceColor = randomColor();
-  return redirect(`/random/${sourceColor.split("#")[1]}/dashboard`);
+  return redirect(`/random/${sourceColor.split("#")[1]}`);
 };
 
 export default function IndexPage() {

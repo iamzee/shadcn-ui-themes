@@ -8,6 +8,7 @@ import {
   CardTitle,
 } from "~/components/ui/card";
 import { Input } from "~/components/ui/input";
+import { Label } from "~/components/ui/label";
 import {
   Select,
   SelectContent,
@@ -17,10 +18,10 @@ import {
 } from "~/components/ui/select";
 import { Separator } from "~/components/ui/separator";
 
-export function DemoShareDocument() {
+export function CardsShare() {
   return (
     <Card>
-      <CardHeader>
+      <CardHeader className="pb-3">
         <CardTitle>Share this document</CardTitle>
         <CardDescription>
           Anyone with the link can view this document.
@@ -28,10 +29,15 @@ export function DemoShareDocument() {
       </CardHeader>
       <CardContent>
         <div className="flex space-x-2">
-          <Input value="http://example.com/link/to/document" readOnly />
-          <Button variant="secondary" className="shrink-0">
-            Copy Link
-          </Button>
+          <Label htmlFor="link" className="sr-only">
+            Link
+          </Label>
+          <Input
+            id="link"
+            value="http://example.com/link/to/document"
+            readOnly
+          />
+          <Button className="shrink-0">Copy Link</Button>
         </div>
         <Separator className="my-4" />
         <div className="space-y-4">
@@ -40,7 +46,7 @@ export function DemoShareDocument() {
             <div className="flex items-center justify-between space-x-4">
               <div className="flex items-center space-x-4">
                 <Avatar>
-                  <AvatarImage src="/avatars/03.png" />
+                  <AvatarImage src="/avatars/03.png" alt="Image" />
                   <AvatarFallback>OM</AvatarFallback>
                 </Avatar>
                 <div>
@@ -51,7 +57,7 @@ export function DemoShareDocument() {
                 </div>
               </div>
               <Select defaultValue="edit">
-                <SelectTrigger className="ml-auto w-[110px]">
+                <SelectTrigger className="ml-auto w-[110px]" aria-label="Edit">
                   <SelectValue placeholder="Select" />
                 </SelectTrigger>
                 <SelectContent>
@@ -63,7 +69,7 @@ export function DemoShareDocument() {
             <div className="flex items-center justify-between space-x-4">
               <div className="flex items-center space-x-4">
                 <Avatar>
-                  <AvatarImage src="/avatars/05.png" />
+                  <AvatarImage src="/avatars/05.png" alt="Image" />
                   <AvatarFallback>IN</AvatarFallback>
                 </Avatar>
                 <div>
@@ -74,7 +80,7 @@ export function DemoShareDocument() {
                 </div>
               </div>
               <Select defaultValue="view">
-                <SelectTrigger className="ml-auto w-[110px]">
+                <SelectTrigger className="ml-auto w-[110px]" aria-label="Edit">
                   <SelectValue placeholder="Select" />
                 </SelectTrigger>
                 <SelectContent>
@@ -86,7 +92,7 @@ export function DemoShareDocument() {
             <div className="flex items-center justify-between space-x-4">
               <div className="flex items-center space-x-4">
                 <Avatar>
-                  <AvatarImage src="/avatars/01.png" />
+                  <AvatarImage src="/avatars/01.png" alt="Image" />
                   <AvatarFallback>SD</AvatarFallback>
                 </Avatar>
                 <div>
@@ -97,7 +103,7 @@ export function DemoShareDocument() {
                 </div>
               </div>
               <Select defaultValue="view">
-                <SelectTrigger className="ml-auto w-[110px]">
+                <SelectTrigger className="ml-auto w-[110px]" aria-label="Edit">
                   <SelectValue placeholder="Select" />
                 </SelectTrigger>
                 <SelectContent>

@@ -5,9 +5,9 @@ import {
 } from "@material/material-color-utilities";
 import convert from "color-convert";
 import randomColor from "randomcolor";
-import { ZodError } from "zod";
+import z, { ZodError } from "zod";
 import { type LoaderFunctionArgs, redirect } from "@remix-run/node";
-import { paramsSchema } from "./params-schema";
+import validator from "validator";
 
 const shadcnVariableMaterialThemeMap = {
   "--background": "background",
@@ -33,11 +33,13 @@ const shadcnVariableMaterialThemeMap = {
 
 export const loader = async ({ params, request }: LoaderFunctionArgs) => {
   try {
-    // extract `sourceColor` and `example` from params (splat route)
-    // if they are not present redirect to `/random/:randomColor/dashboard`
-    const [sourceColor] = await paramsSchema.parseAsync(
-      params["*"]?.split("/")
-    );
+    // extract `sourceColor` from params (splat route)
+    // if they are not present redirect to `/random/:randomColor`
+    const sourceColor = await z
+      .string()
+      .transform((val) => `#${val}`)
+      .refine(validator.isHexColor)
+      .parseAsync(params["*"]);
 
     const theme = themeFromSourceColor(argbFromHex(sourceColor));
     const radius = new URL(request.url).searchParams.get("radius") || "0.5";
@@ -82,7 +84,7 @@ export const loader = async ({ params, request }: LoaderFunctionArgs) => {
   } catch (err) {
     if (err instanceof ZodError) {
       const sourceColor = randomColor();
-      return redirect(`/random/${sourceColor.split("#")[1]}/dashboard`);
+      return redirect(`/random/${sourceColor.split("#")[1]}`);
     }
     throw new Response("something went wrong!!");
   }

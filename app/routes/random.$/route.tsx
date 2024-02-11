@@ -1,6 +1,5 @@
 import { useLoaderData, useSearchParams } from "@remix-run/react";
 import type { loader } from "./loader.server";
-import { ExamplesNav } from "./example-nav";
 import { Example } from "./example";
 import { ActionBar } from "./action-bar";
 import { Header } from "./header";
@@ -31,8 +30,7 @@ export default function RandomPage() {
       <div className="h-14 w-screen fixed top-0">
         <Header />
       </div>
-      <div className="w-screen h-screen p-14 pb-28">
-        <ExamplesNav />
+      <div className="w-screen h-screen p-14">
         <Example light={light} dark={dark} />
       </div>
       <div className="h-14 px-14 w-screen fixed bottom-0 flex justify-between items-center space-x-5">

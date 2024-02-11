@@ -1,5 +1,4 @@
-import { Form, useParams } from "@remix-run/react";
-import { paramsSchema } from "./params-schema";
+import { Form } from "@remix-run/react";
 import {
   Dialog,
   DialogContent,
@@ -55,8 +54,6 @@ export const ActionBar = ({ light, dark }: { light: any; dark: any }) => {
   }
 }
   `;
-  const params = useParams();
-  const [, example] = paramsSchema.parse(params["*"]?.split("/"));
 
   return (
     <>
@@ -90,7 +87,6 @@ export const ActionBar = ({ light, dark }: { light: any; dark: any }) => {
           </DialogContent>
         </Dialog>
         <Form method="POST">
-          <input type="hidden" name="example" value={example} />
           <Button type="submit">
             <Shuffle className="w-4 h-4 mr-2" />
             Shuffle

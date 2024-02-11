@@ -1,6 +1,4 @@
-"use client";
-
-import { Icons } from "~/shadcn-examples/components/icons";
+import { Icons } from "./icons";
 import { Button } from "~/components/ui/button";
 import {
   Card,
@@ -13,7 +11,7 @@ import {
 import { Input } from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
 
-export function DemoCreateAccount() {
+export function CardsCreateAccount() {
   return (
     <Card>
       <CardHeader className="space-y-1">
@@ -26,7 +24,7 @@ export function DemoCreateAccount() {
         <div className="grid grid-cols-2 gap-6">
           <Button variant="outline">
             <Icons.gitHub className="mr-2 h-4 w-4" />
-            Github
+            GitHub
           </Button>
           <Button variant="outline">
             <Icons.google className="mr-2 h-4 w-4" />
@@ -38,7 +36,7 @@ export function DemoCreateAccount() {
             <span className="w-full border-t" />
           </div>
           <div className="relative flex justify-center text-xs uppercase">
-            <span className="bg-background px-2 text-muted-foreground">
+            <span className="bg-card px-2 text-muted-foreground">
               Or continue with
             </span>
           </div>
