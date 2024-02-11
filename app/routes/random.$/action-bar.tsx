@@ -92,6 +92,17 @@ export const ActionBar = ({ light, dark }: { light: any; dark: any }) => {
             Shuffle
           </Button>
         </Form>
+        <p className="text-sm font-medium text-secondary">
+          Built by{" "}
+          <a
+            href="https://twitter.com/adeen_zeeshan"
+            target="_blank"
+            rel="noreferrer"
+            className="underline"
+          >
+            Zeeshan Adeen
+          </a>
+        </p>
       </div>
 
       <div className="flex items-center divide-x-2 [&>*:not(:last-child)]:px-2 [&>*:last-child]:pl-2">
