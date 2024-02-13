@@ -141,7 +141,7 @@ export const ActionBar = ({ light, dark }: { light: any; dark: any }) => {
       </div>
 
       {/* Mobile screens --------- */}
-      <div className="h-14 px-4 w-screen fixed bottom-0 flex items-center space-x-2 bg-accent/80 lg:hidden">
+      <div className="h-14 px-4 w-screen fixed bottom-0 flex items-center space-x-2 bg-accent lg:hidden">
         <Dialog>
           <DialogTrigger asChild>
             <Button>
