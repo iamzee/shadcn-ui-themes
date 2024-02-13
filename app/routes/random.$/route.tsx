@@ -30,12 +30,10 @@ export default function RandomPage() {
       <div className="h-14 w-screen fixed top-0">
         <Header />
       </div>
-      <div className="w-screen h-screen p-14">
+      <div className="w-screen h-screen px-4 py-14 lg:p-14">
         <Demo light={light} dark={dark} />
       </div>
-      <div className="h-14 px-14 w-screen fixed bottom-0 flex justify-between items-center space-x-5">
-        <ActionBar light={light} dark={dark} />
-      </div>
+      <ActionBar light={light} dark={dark} />
     </div>
   );
 }

@@ -5,17 +5,17 @@ import { siteConfig } from "~/utils/site-config";
 
 export const Header = () => {
   return (
-    <div className="w-full h-full flex items-center px-14 justify-between">
+    <div className="w-full h-full flex items-center px-14 lg:justify-between justify-center">
       <div className="flex items-center space-x-2">
         🎨
         <span className="font-bold inline-block text-primary ml-2">
           {siteConfig.title}
         </span>
       </div>
-      <span className="font-medium underline underline-offset-2 text-secondary">
+      <span className="font-medium underline underline-offset-2 text-secondary hidden lg:block">
         <q>{siteConfig.description}</q>
       </span>
-      <div className="text-sm space-x-5">
+      <div className="text-sm space-x-5 hidden lg:block">
         <NavLink
           to="/random"
           className={({ isActive }) =>
@@ -30,7 +30,7 @@ export const Header = () => {
         <span
           // to="/playground"
           className={cn(
-            "transition-colors hover:text-foreground/80 opacity-60"
+            "transition-colors hover:text-foreground/80 opacity-60 hidden"
             // isActive ? "text-foreground font-medium" : "text-foreground/60"
           )}
         >
