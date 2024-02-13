@@ -1,4 +1,4 @@
-import { Form, useSearchParams } from "@remix-run/react";
+import { Form, useSearchParams, useNavigation } from "@remix-run/react";
 import {
   Dialog,
   DialogContent,
@@ -29,6 +29,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "~/components/ui/select";
+import { Spinner } from "~/components/spinner";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const ActionBar = ({ light, dark }: { light: any; dark: any }) => {
@@ -72,6 +73,9 @@ export const ActionBar = ({ light, dark }: { light: any; dark: any }) => {
   `;
 
   const [searchParams, setSearchParams] = useSearchParams();
+  const navigation = useNavigation();
+  const loading =
+    navigation.state === "loading" || navigation.state === "submitting";
 
   return (
     <>
@@ -107,8 +111,12 @@ export const ActionBar = ({ light, dark }: { light: any; dark: any }) => {
             </DialogContent>
           </Dialog>
           <Form method="POST">
-            <Button type="submit">
-              <Shuffle className="w-4 h-4 mr-2" />
+            <Button type="submit" disabled={loading}>
+              {loading ? (
+                <Spinner className="w-4 h-4 mr-2 fill-white" />
+              ) : (
+                <Shuffle className="w-4 h-4 mr-2" />
+              )}
               Shuffle
             </Button>
           </Form>
@@ -162,8 +170,12 @@ export const ActionBar = ({ light, dark }: { light: any; dark: any }) => {
           </DialogContent>
         </Dialog>
         <Form method="POST">
-          <Button type="submit">
-            <Shuffle className="w-4 h-4" />
+          <Button type="submit" disabled={loading}>
+            {loading ? (
+              <Spinner className="w-4 h-4 fill-white" />
+            ) : (
+              <Shuffle className="w-4 h-4" />
+            )}
           </Button>
         </Form>
         <Select
